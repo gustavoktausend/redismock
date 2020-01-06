@@ -30,6 +30,7 @@ public class Jogo {
     private String game_type;
     private String about_title;
     private String about_text;
+    private String rules_title;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class JogoBuilder {}
