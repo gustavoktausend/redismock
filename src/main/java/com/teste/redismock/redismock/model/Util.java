@@ -13,19 +13,21 @@ import org.springframework.data.redis.core.RedisHash;
 @Builder
 @Getter
 @Setter
-@JsonDeserialize(builder = General.GeneralBuilder.class)
+@JsonDeserialize(builder = Util.UtilBuilder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RedisHash("General")
-public class General {
+@RedisHash("Util")
+public class Util {
 
     @Id
     private String id;
-    private String title;
-    private String ranking;
-    private String play;
-    private String rules;
+    private String page_title;
+    private String ranking_title;
+    private String play_button;
+    private String rules_button;
+    private String logo_top;
+    private String meta_description;
 
     @JsonPOJOBuilder(withPrefix = "")
-    public static class GeneralBuilder {}
+    public static class UtilBuilder {}
 
 }
