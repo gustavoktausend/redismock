@@ -27,6 +27,7 @@ public class JogoService {
                         .about_title(newJogo.getAbout_title())
                         .about_text(newJogo.getAbout_text())
                         .rules_title(newJogo.getRules_title())
+                        .description_meta(newJogo.getDescription_meta())
                         .build()
         );
     }

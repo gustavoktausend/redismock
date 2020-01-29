@@ -31,6 +31,7 @@ public class Jogo {
     private String about_title;
     private String about_text;
     private String rules_title;
+    private String description_meta;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class JogoBuilder {}
