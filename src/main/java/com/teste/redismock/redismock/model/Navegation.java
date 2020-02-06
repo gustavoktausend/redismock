@@ -23,6 +23,7 @@ public class Navegation {
     private String about;
     private String blog;
     private String help;
+    private String rules;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class NavegationBuilder {}

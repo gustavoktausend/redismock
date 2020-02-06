@@ -8,16 +8,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
 
 
 @Builder
 @Getter
 @Setter
-@JsonDeserialize(builder = Jogo.JogoBuilder.class)
+@JsonDeserialize(builder = Game.GameBuilder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RedisHash("Jogo")
-public class Jogo {
+public class Game {
 
     @Id
     private String id;
@@ -29,11 +27,11 @@ public class Jogo {
     private String description_text;
     private String game_type;
     private String about_title;
-    private String about_text;
+    private AboutTextDto main_game_about;
     private String rules_title;
     private String description_meta;
 
     @JsonPOJOBuilder(withPrefix = "")
-    public static class JogoBuilder {}
+    public static class GameBuilder {}
 
 }

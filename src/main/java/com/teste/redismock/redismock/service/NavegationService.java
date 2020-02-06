@@ -23,6 +23,7 @@ public class NavegationService {
                 .about(newNavegation.getAbout())
                 .blog(newNavegation.getBlog())
                 .help(newNavegation.getHelp())
+                .rules(newNavegation.getRules())
                 .build()
         );
     }
