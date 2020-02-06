@@ -110,4 +110,37 @@ public class GameService {
                         ).collect(Collectors.toList());
     }
 
+    public List<Game> getAllBundlesByGameType(String gameType) {
+
+        GameType gameTypeValue = GameType.valueOf(gameType);
+        return MJI18N.getLocales()
+                .stream()
+                .map(locale ->
+                        Game.builder()
+                            .id(gameTypeValue.getGameNameKey() + "_" + locale.toString().replace("_","-"))
+                            .introduction_text(SiteI18n.getRuleGames(gameTypeValue, "1_introduction_text", locale))
+                            .introduction_title(SiteI18n.getRuleGames(gameTypeValue, "1_introduction_title", locale))
+                            .description_text(SiteI18n.getRuleGames(gameTypeValue, "2_description_text", locale))
+                            .description_title(SiteI18n.getRuleGames(gameTypeValue, "2_description_title", locale))
+                            .extraInfo_text(SiteI18n.getRuleGames(gameTypeValue, "3_extraInfo_text", locale))
+                            .about_title(SiteI18n.getMain("main_game_about", locale) + gameTypeValue.getGameName(locale) + " Online")
+                            .rules_title(SiteI18n.getMain("gameRules", locale) + " " + gameTypeValue.getGameName(locale))
+                            .extraInfo_title("The Game")
+                            .main_game_about(
+                                    AboutTextDto.builder()
+                                            .main_game_about_item1(MJI18N.format(SiteI18n.getMain("main_game_about_item1", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item2(MJI18N.format(SiteI18n.getMain("main_game_about_item2", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item3(MJI18N.format(SiteI18n.getMain("main_game_about_item3", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item4(MJI18N.format(SiteI18n.getMain("main_game_about_item4", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item5(MJI18N.format(SiteI18n.getMain("main_game_about_item5", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item6(MJI18N.format(SiteI18n.getMain("main_game_about_item6", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item7(MJI18N.format(SiteI18n.getMain("main_game_about_item7", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item8(MJI18N.format(SiteI18n.getMain("main_game_about_item8", locale), gameTypeValue.getGameName()))
+                                            .main_game_about_item9(MJI18N.format(SiteI18n.getMain("main_game_about_item9", locale), gameTypeValue.getGameName()))
+                                            .build()
+                            )
+                            .build()
+                ).collect(Collectors.toList());
+    }
+
 }

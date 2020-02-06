@@ -35,4 +35,9 @@ public class GameController {
         return service.getGameConfigs(gameCategory);
     }
 
+    @GetMapping("/{game}")
+    public List<Game> getAllBundlesForGame(@PathVariable String game) {
+        return service.getAllBundlesByGameType(game);
+    }
+
 }
